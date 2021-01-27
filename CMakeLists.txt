@@ -4,7 +4,13 @@
 
 cmake_minimum_required(VERSION 3.9)
 # Keep the version below in sync with the one in db.h
-project(leveldb VERSION 1.22.0 LANGUAGES C CXX)
+
+PROJECT(leveldb VERSION 1.22.0 LANGUAGES C CXX)
+
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+INCLUDE(cmake/ModuleImport.cmake)
+INCLUDE(cmake/ModuleCompileOptions.cmake)
+ModuleSetCompileOptions()
 
 # C standard can be overridden when this is used as a sub-project.
 if(NOT CMAKE_C_STANDARD)
